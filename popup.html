@@ -2,75 +2,74 @@
 <html>
   <head>
     <style>
-     button {
-		display: inline-block;
-		height: 43px;
-		padding: 0px;
-		margin-right: 10px;
-		vertical-align: top;
-		width: 43px;
-		outline:none;
-		border-color: #ff0000;
-		background-color: Transparent;
-		background-image: url(images/play.png);
-	 }
-	 .skipButton {background-image: url(images/skip.png);}
-	 .deleteButton {background-image: url(images/delete.png);}
-	 .playButton {background-image: url(images/play.png);}
-	 .skipButton {margin-left: 29px;}
-	 
-	 body {
-		min-width: 200px; /* your desired width */
-		max-width: 100%;
-		position: relative;
-		vertical-align:middle;
-	}
-	/* the styles for the Uqueue video UI */
-	videoScoller{
-		height: 400px;
-		overflow-y:scroll;
-	}
-	
-	.center {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 75%;
-	}
-	
-	.box{
-		width:200px;
-		height:3px;
-	}
+  	  button {
+			height: 43px;
+			width: 58px;
+			margin-top: 10px;
+			border:none;
+			background-color: Transparent;
+			display:block;
+			float:left
+		 }
+		 .skipButton {background-image: url(images/skip.jpg);}
+		 .deleteButton {background-image: url(images/delete.jpg);}
+		 .playButton {background-image: url(images/play.jpg);}
+		 .skipButton {margin-left: 10px;}
+
+		 body {
+			min-width: 200px; /* your desired width */
+			max-width: 100%;
+			position: relative;
+			vertical-align:middle;
+		}
+		/* the styles for the Uqueue video UI */
+		videoScoller{
+			height: 400px;
+			overflow-y:scroll;
+		}
+
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 75%;
+		}
+
+		.box{
+			width:200px;
+			height:3px;
+		}
  
-	.red{
-		background:#f00;
-	}
+		.red{
+			background:#f00;
+		}
 	 
 	 
-    </style>
+  </style>
 	
 	<image src="images/logo.png", class="center"></image>
+
   </head>
   <body>
-	<div class = "box red center"></div>
-	<br>
-	<button id="skip", class="button
-	skipButton"></button>
-	<button id="play", class="button
-	playButton"></button>
-	<button id="deleteQueue", class="button
-	deleteButton"></button>
-	
-	<br>
-	<br>
-	<div class = "box red center"></div>
-	<br>
-	
-	<div id="videoBox", class="videoScoller">
-	</div>
-	<div id="VideoCont", class="VideoContainer">
-	</div>
-	<script src="popup.js"></script>
+		<div class = "box red center"></div>
+		<div calss = "buttons">
+			<button id="skip", class="button 
+			skipButton"></button>
+		
+			<button id="play", class="button
+			playButton"></button>
+		
+			<button id="deleteQueue", class="button
+			deleteButton"></button>
+		</div>
+
+		<br></br>
+		<br></br>
+		<div class = "box red center"></div>
+		<br></br>
+
+		<div id="videoBox", class="videoScoller"></div>
+		<div id="VideoCont", class="VideoContainer"></div>
+		<script src="popup.js"></script>
   </body>
 </html>
