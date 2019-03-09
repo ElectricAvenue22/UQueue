@@ -25,7 +25,6 @@ chrome.runtime.onMessage.addListener(
                     vidQueue.splice(vid, 1);
             }
         } else if(request.greeting == "Move"){ //swap two adjacent videos 
-            console.log(vidQueue);
             for(k = 0; k < vidQueue.length; k++) {
                 if(request.link == vidQueue[k]){
                     if(request.dir == "Up" && k > 0) {
@@ -45,6 +44,5 @@ chrome.runtime.onMessage.addListener(
                     break;
                 }
             }
-            console.log(vidQueue);
         }
 });

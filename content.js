@@ -1,27 +1,27 @@
 //queue up video button css style 
 const buttonCss = `font-weight: 800;
-            font-size: 19px;
-            background-color: red;
-            color: white;
-            z-index: 2000;
-            opacity: 0.9;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;`
+    font-size: 19px;
+    background-color: red;
+    color: white;
+    z-index: 2000;
+    opacity: 0.9;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;`
 
 //skip button css style 			
 const skipButtonCss = `font-weight: 800;
-            font-size: 19px;
-            background-color: red;
-            color: white;
-            z-index: 2000;
-            opacity: 0.15;
-            width: 50px;
-            height: 32px;
-			position: absolute;
-			left: 0px;
-			top: 0px;
-            cursor: pointer;`
+    font-size: 19px;
+    background-color: red;
+    color: white;
+    z-index: 2000;
+    opacity: 0.15;
+	width: 50px;
+    height: 32px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+    cursor: pointer;`
 
 const timeInterval = 1000; //update interval between button checks 
 const playerload = 1000; //time we wait before attempting to add skip button to player, required so the player is loaded before we add it 
@@ -36,8 +36,8 @@ function timeOutEvent(){
 
 window.setTimeout(timeOutEvent, timeInterval);
 
+//Adds the '+' buttons to all the currently visible youtube videos 
 function addButtons() {
-	
     let links = document.getElementsByTagName('ytd-thumbnail');
     for (i in links) {
 		if(links[i].id == null) continue; 
@@ -50,6 +50,7 @@ function addButtons() {
 				break; 
 			}
 		}
+		//A button does not yet exist so add one 
 	    if (!foundChild) {
             let node = document.createElement("button");
             let bImage = document.createTextNode("+");
