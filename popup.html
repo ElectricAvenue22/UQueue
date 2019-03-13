@@ -3,21 +3,19 @@
   <head>
     <style>
   	  button {
-			height: 43px;
-			width: 58px;
-			margin-top: 10px;
 			border:none;
 			background-color: Transparent;
 			display:block;
-			float:left
 		 }
-		 .skipButton {background-image: url(images/skip.jpg);}
-		 .deleteButton {background-image: url(images/delete.jpg);}
-		 .playButton {background-image: url(images/play.jpg);}
+
+		 .skipButton {background-image: url(images/skip.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
+		 .deleteButton {background-image: url(images/delete.jpg); height:43px; width:58px; margin-top: 10px; float:left}
+		 .playButton {background-image: url(images/play.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
 		 .skipButton {margin-left: 10px;}
+		 .settingsButton {background-image: url(images/settings.png); width: 20px; height: 20px; float:right;}
 
 		 body {
-			min-width: 200px; /* your desired width */
+			min-width: 200px; 
 			max-width: 100%;
 			position: relative;
 			vertical-align:middle;
@@ -68,6 +66,9 @@
 	 
   </style>
 	
+	<button id="settings", class="button 
+	settingsButton"></button>
+
 	<image src="images/logo.png", class="center"></image>
 
   </head>
