@@ -2,8 +2,25 @@
 let play = document.getElementById('play');
 let deleteQueue = document.getElementById('deleteQueue');
 let skip = document.getElementById('skip');
+let settings = document.getElementById('settings');
+
+//get settings refernces
+let settingsClicked = false;
+let settingsWindow = document.getElementById('settingsWindow') 
 
 requestQueue(true); //get video queue from VideoManager
+
+
+//determine the right function to call for the settings page 
+settings.onclick = function(elemment) {
+  if(settingsClicked){
+    settingsWindow.setAttribute("class", "hide")
+    settingsClicked = false
+  }else{
+    settingsWindow.setAttribute("class", "show")
+    settingsClicked = true
+  }
+};
 
 //play the queue
 play.onclick = function (element) {

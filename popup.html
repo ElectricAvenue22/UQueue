@@ -12,7 +12,7 @@
 		 .deleteButton {background-image: url(images/delete.jpg); height:43px; width:58px; margin-top: 10px; float:left}
 		 .playButton {background-image: url(images/play.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
 		 .skipButton {margin-left: 10px;}
-		 .settingsButton {background-image: url(images/settings.png); width: 20px; height: 20px; float:right;}
+		 .settingsButton {background-image: url(images/settings.png); width: 20px; height: 20px; float:right}
 
 		 body {
 			min-width: 200px; 
@@ -20,16 +20,17 @@
 			position: relative;
 			vertical-align:middle;
 		}
-		/* the styles for the Uqueue video UI */
-		videoScoller{
-			height: 400px;
-			overflow-y:scroll;
-		}
 
 		.center {
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
+			width: 75%;
+		}
+
+		.logo {
+			display: block;
+			margin-left: 25px;
 			width: 75%;
 		}
 
@@ -40,6 +41,14 @@
  
 		.red{
 			background:#f00;
+		}
+
+		.hide {
+			display: none; 
+		}
+
+		.show {
+			display: show;
 		}
 
 		/*custom scrollbar*/
@@ -69,7 +78,13 @@
 	<button id="settings", class="button 
 	settingsButton"></button>
 
-	<image src="images/logo.png", class="center"></image>
+	<div id="settingsWindow", class="hide">
+		<input type="checkbox", name="showSkip"> <b>Show the skip button</b><br>
+		<input type="checkbox", name="fullscreen"> <b>Play videos in full screen</b><br>
+		<br>
+	</div>
+
+	<image src="images/logo.png", class="logo"></image>
 
   </head>
   <body>
