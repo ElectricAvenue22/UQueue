@@ -12,7 +12,7 @@ let showSkipButton = document.getElementById('showSkip')
 
 //get settings from storage 
 chrome.storage.sync.get(['showskip'], function(result){ showSkipButton.checked = result.showskip});
-chrome.storage.sync.get("fullscreen", function(result){ fullscreenMode.checked = result.fullscreen });
+chrome.storage.sync.get(['fullscreen'], function(result){ fullscreenMode.checked = result.fullscreen });
 
 requestQueue(true); //get video queue from VideoManager
 

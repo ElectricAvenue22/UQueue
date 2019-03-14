@@ -54,15 +54,19 @@ function addButtons() {
 		}
 		//A button does not yet exist so add one 
 	    if (!foundChild) {
+
+			let forceFullScreen = true;
+			chrome.storage.sync.get(['fullscreen'], function(result){ forceFullScreen = result.fullscreen });
+
             let node = document.createElement("button");
-            let bImage = document.createTextNode("+");
+			let bImage = document.createTextNode("+");
             node.appendChild(bImage);
             node.setAttribute("style", buttonCss);
             node.setAttribute("href", links[i].getElementsByTagName('a')[0].href);
 			node.setAttribute("id", "queueButton");
 			node.onclick = function (event) { //add video to the queue 
-				chrome.runtime.sendMessage({ greeting: "VideoAdded", link: (true) ? 
-				  this.getAttribute("href").replace('watch?v=', 'embed/') + '?rel=0&amp;autoplay=1;fs=0;autohide=0;hd=0;'
+				chrome.runtime.sendMessage({ greeting: "VideoAdded", link: (forceFullScreen) ? 
+				  this.getAttribute("href").replace('watch?v=', 'embed/') + '?rel=0&amp;autoplay=1;fs=1;autohide=1;hd=1;'
 				: this.getAttribute("href")}, 
 				function () { });
             }
@@ -124,8 +128,11 @@ function addSkipButton(){
 }
 
 //Wait for page to load before adding the skip buttons 
-window.setTimeout(addSkipButton, playerload); 
-
+chrome.storage.sync.get(['showskip'], function(result){ 
+	if(result.showskip){
+		window.setTimeout(addSkipButton, playerload); 
+	}
+});
 
 //detects when a video ends 
 var video = document.getElementsByTagName("video")[0];
