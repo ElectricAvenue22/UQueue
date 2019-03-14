@@ -7,6 +7,8 @@ let settings = document.getElementById('settings');
 //get settings refernces
 let settingsClicked = false;
 let settingsWindow = document.getElementById('settingsWindow') 
+let fullscreenMode = document.getElementById('fullscreen')
+let showSkipButtons = document.getElementById('showSkip')
 
 requestQueue(true); //get video queue from VideoManager
 
@@ -168,13 +170,20 @@ function urlToThumbail(youtubeUrl){
   let tail ="/0.jpg";
   let link = ""
   let numEquals = 0;
-  for(i = 0; i < youtubeUrl.length && numEquals < 2; i++){
-    if(youtubeUrl[i] == "=" || youtubeUrl[i] == "&"){
-      numEquals++;
-    } else if(numEquals == 1){
-      link+= youtubeUrl[i];
+  if(youtubeUrl.indexOf('watch?v=') != -1){
+    for(i = 0; i < youtubeUrl.length && numEquals < 2; i++){
+      if(youtubeUrl[i] == "=" || youtubeUrl[i] == "&"){
+        numEquals++;
+      } else if(numEquals == 1){
+        link += youtubeUrl[i];
+      }
     }
+  }else if(youtubeUrl.indexOf('embed/') != -1){
+    let end = youtubeUrl.indexOf('?rel=0&amp;autoplay=1;fs=0;autohide=0;hd=0;') //find the added full screen text
+    let start = youtubeUrl.indexOf('embed/')
+    link = youtubeUrl.substring(start + 'embed/'.length, end);
   }
+  console.log(head + link + tail)
   return head + link + tail;
 }
 

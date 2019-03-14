@@ -34,6 +34,8 @@ function timeOutEvent(){
     window.setTimeout(timeOutEvent, timeInterval);
 }
 
+let full = true;
+
 window.setTimeout(timeOutEvent, timeInterval);
 
 //Adds the '+' buttons to all the currently visible youtube videos 
@@ -58,8 +60,11 @@ function addButtons() {
             node.setAttribute("style", buttonCss);
             node.setAttribute("href", links[i].getElementsByTagName('a')[0].href);
 			node.setAttribute("id", "queueButton");
-            node.onclick = function (event) { //add video to the queue 
-                chrome.runtime.sendMessage({ greeting: "VideoAdded", link: this.getAttribute("href") }, function () { });
+			node.onclick = function (event) { //add video to the queue 
+				chrome.runtime.sendMessage({ greeting: "VideoAdded", link: (true) ? 
+				  this.getAttribute("href").replace('watch?v=', 'embed/') + '?rel=0&amp;autoplay=1;fs=0;autohide=0;hd=0;'
+				: this.getAttribute("href")}, 
+				function () { });
             }
             links[i].appendChild(node); 
         }
