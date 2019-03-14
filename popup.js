@@ -3,12 +3,16 @@ let play = document.getElementById('play');
 let deleteQueue = document.getElementById('deleteQueue');
 let skip = document.getElementById('skip');
 let settings = document.getElementById('settings');
-
+console.log('bb')
 //get settings refernces
 let settingsClicked = false;
 let settingsWindow = document.getElementById('settingsWindow') 
 let fullscreenMode = document.getElementById('fullscreen')
-let showSkipButtons = document.getElementById('showSkip')
+let showSkipButton = document.getElementById('showSkip')
+
+//get settings from storage 
+chrome.storage.sync.get(['showskip'], function(result){ showSkipButton.checked = result.showskip});
+chrome.storage.sync.get("fullscreen", function(result){ fullscreenMode.checked = result.fullscreen });
 
 requestQueue(true); //get video queue from VideoManager
 
@@ -43,6 +47,16 @@ skip.onclick = function (element) {
     chrome.runtime.sendMessage({greeting: "Pop", newTab: false}, function(){})
     close();
   }
+}
+
+//set skip state
+showSkipButton.onclick = function(element){
+  chrome.storage.sync.set({showskip : showSkipButton.checked}, function(){});
+}
+
+//set full screen state
+fullscreenMode.onclick = function(element){
+  chrome.storage.sync.set({fullscreen : fullscreenMode.checked}, function(){});
 }
 
 //get queue from VideoManager
