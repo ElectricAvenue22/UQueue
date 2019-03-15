@@ -38,6 +38,22 @@ let full = true;
 
 window.setTimeout(timeOutEvent, timeInterval);
 
+//take the URL and clean it up
+function createLink(fullScreenLink, node){
+	let link = "";
+	if(fullScreenLink){
+		link = node.getAttribute("href").replace('watch?v=', 'embed/')
+		//if there is still an equal sign delete it 
+		if(link.indexOf('=') != -1){
+			link = link.substr(0,link.indexOf('='));
+		}
+		link += '?rel=0&amp;autoplay=1;fs=1;autohide=1;hd=1;'//full screen modifiers
+	}else{
+		link = node.getAttribute("href");
+	}
+	return link;
+}
+
 //Adds the '+' buttons to all the currently visible youtube videos 
 function addButtons() {
     let links = document.getElementsByTagName('ytd-thumbnail');
@@ -55,7 +71,7 @@ function addButtons() {
 		//A button does not yet exist so add one 
 	    if (!foundChild) {
 
-			let forceFullScreen = true;
+			let forceFullScreen = null;
 			chrome.storage.sync.get(['fullscreen'], function(result){ forceFullScreen = result.fullscreen });
 
             let node = document.createElement("button");
@@ -65,10 +81,7 @@ function addButtons() {
             node.setAttribute("href", links[i].getElementsByTagName('a')[0].href);
 			node.setAttribute("id", "queueButton");
 			node.onclick = function (event) { //add video to the queue 
-				chrome.runtime.sendMessage({ greeting: "VideoAdded", link: (forceFullScreen) ? 
-				  this.getAttribute("href").replace('watch?v=', 'embed/') + '?rel=0&amp;autoplay=1;fs=1;autohide=1;hd=1;'
-				: this.getAttribute("href")}, 
-				function () { });
+				chrome.runtime.sendMessage({ greeting: "VideoAdded", link: createLink(forceFullScreen, node)}, function() { });
             }
             links[i].appendChild(node); 
         }
@@ -86,7 +99,8 @@ function addSkipButton(){
 	var youtubeVideoPlayer = document.getElementsByClassName('style-scope ytd-watch-flexy');
 	youtubeVideoPlayerLarge = youtubeVideoPlayer[6]; //6 theater and full screen viewer
     youtubeVideoPlayerSmall = youtubeVideoPlayer[11]; //11 normal sized viewer 
-    youtubeVideoPlayerMini = youtubeVideoPlayer[14]; //14 is the mini player 
+	youtubeVideoPlayerMini = youtubeVideoPlayer[14]; //14 is the mini player 
+	yotubeVideoPlayerTheater = document.getElementById('player');
 	
 	//button 1 (large)
 	if(youtubeVideoPlayerLarge != null){
@@ -122,6 +136,18 @@ function addSkipButton(){
 		skipButtonSmallx.onmouseenter = function(event) {skipButtonSmallx.style.opacity = 1;}
 		skipButtonSmallx.onmouseleave = function(event) {skipButtonSmallx.style.opacity = 0.15;}
 		youtubeVideoPlayerMini.appendChild(skipButtonSmallx);
+	}
+
+	//button 4 (theater)
+	if(yotubeVideoPlayerTheater != null){
+		let bImageSmallx = document.createTextNode(">>");
+		var skipButtonSmallx = document.createElement("button");
+		skipButtonSmallx.appendChild(bImageSmallx);
+		skipButtonSmallx.setAttribute("style", skipButtonCss);
+		skipButtonSmallx.onclick = skipVideo;
+		skipButtonSmallx.onmouseenter = function(event) {skipButtonSmallx.style.opacity = 1;}
+		skipButtonSmallx.onmouseleave = function(event) {skipButtonSmallx.style.opacity = 0.15;}
+		yotubeVideoPlayerTheater.appendChild(skipButtonSmallx);
 	}
     
     

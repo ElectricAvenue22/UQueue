@@ -3,7 +3,7 @@ let play = document.getElementById('play');
 let deleteQueue = document.getElementById('deleteQueue');
 let skip = document.getElementById('skip');
 let settings = document.getElementById('settings');
-console.log('bb')
+
 //get settings refernces
 let settingsClicked = false;
 let settingsWindow = document.getElementById('settingsWindow') 
@@ -183,8 +183,9 @@ function urlToThumbail(youtubeUrl){
   let head = "http://img.youtube.com/vi/"
   let tail ="/0.jpg";
   let link = ""
-  let numEquals = 0;
+  let searchString = ((youtubeUrl.indexOf('watch?v=') != -1) ? 'wathc?v=' : 'embed/')
   if(youtubeUrl.indexOf('watch?v=') != -1){
+    let numEquals = 0;
     for(i = 0; i < youtubeUrl.length && numEquals < 2; i++){
       if(youtubeUrl[i] == "=" || youtubeUrl[i] == "&"){
         numEquals++;
@@ -193,7 +194,7 @@ function urlToThumbail(youtubeUrl){
       }
     }
   }else if(youtubeUrl.indexOf('embed/') != -1){
-    let end = youtubeUrl.indexOf('?rel=0&amp;autoplay=1;fs=0;autohide=0;hd=0;') //find the added full screen text
+    let end = youtubeUrl.indexOf('?rel=0&amp;autoplay=1;fs=1;autohide=1;hd=1;') //find the added full screen text
     let start = youtubeUrl.indexOf('embed/')
     link = youtubeUrl.substring(start + 'embed/'.length, end);
   }
