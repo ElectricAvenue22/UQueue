@@ -38,14 +38,14 @@ let full = true;
 
 window.setTimeout(timeOutEvent, timeInterval);
 
-//take the URL and clean it up
+//if fullscreen mode is active cleanup URL to point to embeded player 
 function createLink(fullScreenLink, node){
 	let link = "";
 	if(fullScreenLink){
 		link = node.getAttribute("href").replace('watch?v=', 'embed/')
 		//if there is still an equal sign delete it 
 		if(link.indexOf('=') != -1){
-			link = link.substr(0,link.indexOf('='));
+			link = link.substr(0,link.indexOf('&t='));
 		}
 		link += '?rel=0&amp;autoplay=1;fs=1;autohide=1;hd=1;'//full screen modifiers
 	}else{
@@ -71,7 +71,7 @@ function addButtons() {
 		//A button does not yet exist so add one 
 	    if (!foundChild) {
 
-			let forceFullScreen = null;
+			let forceFullScreen = false;
 			chrome.storage.sync.get(['fullscreen'], function(result){ forceFullScreen = result.fullscreen });
 
             let node = document.createElement("button");

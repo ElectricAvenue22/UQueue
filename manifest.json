@@ -1,6 +1,6 @@
 {
   "name": "UQueue",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Make watching multiple videos quick and easy with the UQueue extension.",
   "permissions": ["activeTab", "declarativeContent", "storage", "contextMenus", "tabs"],
   "background": {
