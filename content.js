@@ -94,6 +94,17 @@ function skipVideo(){
 }
 
 
+function createNewSkipButton(){
+	let bImageLarge = document.createTextNode(">>");
+	let skipButton = document.createElement("button");
+	skipButton.appendChild(bImageLarge);
+	skipButton.setAttribute("style", skipButtonCss);
+	skipButton.onclick = skipVideo;
+	skipButton.onmouseenter = function(event) {skipButton.style.opacity = 1;}
+	skipButton.onmouseleave = function(event) {skipButton.style.opacity = 0.15;}
+	return skipButton;
+}
+
 //add a skip button to the youtube player
 function addSkipButton(){ 
 	var youtubeVideoPlayer = document.getElementsByClassName('style-scope ytd-watch-flexy');
@@ -104,50 +115,26 @@ function addSkipButton(){
 	
 	//button 1 (large)
 	if(youtubeVideoPlayerLarge != null){
-		let bImageLarge = document.createTextNode(">>");
-		let skipButtonLarge = document.createElement("button");
-		skipButtonLarge.appendChild(bImageLarge);
-		skipButtonLarge.setAttribute("style", skipButtonCss);
-		skipButtonLarge.onclick = skipVideo;
-		skipButtonLarge.onmouseenter = function(event) {skipButtonLarge.style.opacity = 1;}
-		skipButtonLarge.onmouseleave = function(event) {skipButtonLarge.style.opacity = 0.15;}
+		skipButtonLarge = createNewSkipButton()
 		youtubeVideoPlayerLarge.appendChild(skipButtonLarge);
 	}
 	
-	//button 2 (theater) 
+	//button 2 (small) 
 	if(youtubeVideoPlayerSmall != null){
-		let bImageSmall = document.createTextNode(">>");
-		var skipButtonSmall = document.createElement("button");
-		skipButtonSmall.appendChild(bImageSmall);
-		skipButtonSmall.setAttribute("style", skipButtonCss);
-		skipButtonSmall.onclick = skipVideo;
-		skipButtonSmall.onmouseenter = function(event) {skipButtonSmall.style.opacity = 1;}
-		skipButtonSmall.onmouseleave = function(event) {skipButtonSmall.style.opacity = 0.15;}
+		skipButtonSmall = createNewSkipButton()
 		youtubeVideoPlayerSmall.appendChild(skipButtonSmall);
 	}
     
     //button 3 (mini)
 	if(youtubeVideoPlayerMini != null){
-		let bImageSmallx = document.createTextNode(">>");
-		var skipButtonSmallx = document.createElement("button");
-		skipButtonSmallx.appendChild(bImageSmallx);
-		skipButtonSmallx.setAttribute("style", skipButtonCss);
-		skipButtonSmallx.onclick = skipVideo;
-		skipButtonSmallx.onmouseenter = function(event) {skipButtonSmallx.style.opacity = 1;}
-		skipButtonSmallx.onmouseleave = function(event) {skipButtonSmallx.style.opacity = 0.15;}
-		youtubeVideoPlayerMini.appendChild(skipButtonSmallx);
+		skipButtonMini = createNewSkipButton()
+		youtubeVideoPlayerMini.appendChild(skipButtonMini);
 	}
 
 	//button 4 (theater)
 	if(yotubeVideoPlayerTheater != null){
-		let bImageSmallx = document.createTextNode(">>");
-		var skipButtonSmallx = document.createElement("button");
-		skipButtonSmallx.appendChild(bImageSmallx);
-		skipButtonSmallx.setAttribute("style", skipButtonCss);
-		skipButtonSmallx.onclick = skipVideo;
-		skipButtonSmallx.onmouseenter = function(event) {skipButtonSmallx.style.opacity = 1;}
-		skipButtonSmallx.onmouseleave = function(event) {skipButtonSmallx.style.opacity = 0.15;}
-		yotubeVideoPlayerTheater.appendChild(skipButtonSmallx);
+		skipButtonTheater = createNewSkipButton()
+		yotubeVideoPlayerTheater.appendChild(skipButtonTheater);
 	}
     
     
