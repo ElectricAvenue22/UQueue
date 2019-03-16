@@ -3,6 +3,9 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({fullscreen : false}, function(){});
     chrome.storage.sync.set({showskip : true}, function(){});
 
+    //open thank you page 
+    chrome.tabs.create({url: "welcome.html"}, function(tab){});
+
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
         chrome.declarativeContent.onPageChanged.addRules([{
             conditions: [new chrome.declarativeContent.PageStateMatcher({
