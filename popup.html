@@ -2,112 +2,109 @@
 <html>
   <head>
     <style>
-  	  button {
-			border:none;
-			background-color: Transparent;
-			display:block;
-		 }
+        button {
+            border:none;
+            background-color: Transparent;
+            display:block;
+        }
 
-		 .skipButton {background-image: url(images/skip.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
-		 .deleteButton {background-image: url(images/delete.jpg); height:43px; width:58px; margin-top: 10px; float:left}
-		 .playButton {background-image: url(images/play.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
-		 .skipButton {margin-left: 10px;}
-		 .settingsButton {background-image: url(images/settings.png); width: 20px; height: 20px; float:right}
+        .skipButton {background-image: url(images/skip.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
+        .deleteButton {background-image: url(images/delete.jpg); height:43px; width:58px; margin-top: 10px; float:left}
+        .playButton {background-image: url(images/play.jpg);     height:43px; width:58px; margin-top: 10px; float:left}
+        .skipButton {margin-left: 10px;}
+        .settingsButton {background-image: url(images/settings.png); width: 20px; height: 20px; float:right}
 
-		 body {
-			min-width: 200px; 
-			max-width: 100%;
-			position: relative;
-			vertical-align:middle;
-		}
+        body {
+            min-width: 200px; 
+            max-width: 100%;
+            position: relative;
+            vertical-align:middle;
+        }
 
-		.center {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width: 75%;
-		}
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 75%;
+        }
 
-		.logo {
-			display: block;
-			margin-left: 25px;
-			width: 75%;
-		}
+        .logo {
+            display: block;
+            margin-left: 25px;
+            width: 75%;
+        }
 
-		.box{
-			width:200px;
-			height:3px;
-		}
+        .box{
+            width:200px;
+            height:3px;
+        }
  
-		.red{
-			background:#f00;
-		}
+        .red{
+            background:#f00;
+        }
 
-		.hide {
-			display: none; 
-		}
+        .hide {
+            display: none; 
+        }
 
-		.show {
-			display: show;
-		}
+        .show {
+            display: show;
+        }
 
-		/*custom scrollbar*/
-		/* width */
-		::-webkit-scrollbar {
-  			width: 10px;
-		}
+        /*custom scrollbar*/
 
-		/* Track */
-		::-webkit-scrollbar-track {
-		  background: white; 
-		}
+        ::-webkit-scrollbar {
+              width: 10px;
+        }
 
-		/* Handle */
-		::-webkit-scrollbar-thumb {
-		  background: red; 
-		  border-radius: 10px;
-		}
+        ::-webkit-scrollbar-track {
+          background: white; 
+        }
 
-		/* Handle on hover */
-		::-webkit-scrollbar-thumb:hover {
-		  background: pink; 
-		}
-	 
+        ::-webkit-scrollbar-thumb {
+          background: red; 
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: pink; 
+        }
+     
   </style>
-	
-	<button id="settings", class="button 
-	settingsButton"></button>
+    
+    <button id="settings", class="button 
+    settingsButton"></button>
 
-	<div id="settingsWindow", class="hide">
-		<input type="checkbox", id="showSkip"> <b>Show the skip button</b><br>
-		<input type="checkbox", id="fullscreen"> <b>Fullscreen embeded player</b><br>
-		<i>A browser restart may be required!</i>
-		<br>
-	</div>
+    <div id="settingsWindow", class="hide">
+        <input type="checkbox", id="showSkip"> <b>Show the skip button</b><br>
+        <input type="checkbox", id="fullscreen"> <b>Fullscreen embeded player</b><br>
+        <i>A browser restart may be required!</i>
+        <br>
+    </div>
 
-	<image src="images/logo.png", class="logo"></image>
+    <image src="images/logo.png", class="logo"></image>
 
   </head>
   <body>
-		<div class = "box red center"></div>
-		<div calss = "buttons">
-			<button id="skip", class="button 
-			skipButton"></button>
-		
-			<button id="play", class="button
-			playButton"></button>
-		
-			<button id="deleteQueue", class="button
-			deleteButton"></button>
-		</div>
+        <div class = "box red center"></div>
+        <div calss = "buttons">
+            <button id="skip", class="button 
+            skipButton"></button>
+        
+            <button id="play", class="button
+            playButton"></button>
+        
+            <button id="deleteQueue", class="button
+            deleteButton"></button>
+        </div>
 
-		<br></br>
-		<br></br>
-		<div class = "box red center"></div>
-		<br></br>
+        <br></br>
+        <br></br>
+        <div class = "box red center"></div>
+        <br></br>
 
-		<div id="videoBox", class="videoScoller"></div>
-		<div id="VideoCont", class="VideoContainer"></div>
-		<script src="popup.js"></script>
+        <div id="videoBox", class="videoScoller"></div>
+        <div id="VideoCont", class="VideoContainer"></div>
+        <script src="popup.js"></script>
   </body>
 </html>
