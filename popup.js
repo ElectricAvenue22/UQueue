@@ -117,16 +117,16 @@ function populateVideoScroller(videoQueue){
     elem.setAttribute("style", cssT);
     elem.setAttribute("type", "image");
     elem.setAttribute("href", videoQueue[videoURL]);
-    elem.src = urlToThumbail(videoQueue[videoURL]);
+    elem.src = urlToThumbnail(videoQueue[videoURL]);
 
     //show delete icon when hovered 
     elem.onmouseenter = function(event) {
-      elem.src = "images/remove.png";
+      elem.style.filter = "grayscale(100%)";
     }
     
     //reset image on mouse leave 
     elem.onmouseleave = function(event) {
-      elem.src = urlToThumbail(elem.getAttribute("href"));
+      elem.style.filter = "";
     }
 
     //delete the clicked video from the queue 
@@ -179,11 +179,10 @@ function populateVideoScroller(videoQueue){
 }
 
 //converts a youtube video url to a url that references the thumbnail image 
-function urlToThumbail(youtubeUrl){
+function urlToThumbnail(youtubeUrl){
   let head = "http://img.youtube.com/vi/"
   let tail ="/0.jpg";
   let link = ""
-  let searchString = ((youtubeUrl.indexOf('watch?v=') != -1) ? 'wathc?v=' : 'embed/')
   if(youtubeUrl.indexOf('watch?v=') != -1){
     let numEquals = 0;
     for(i = 0; i < youtubeUrl.length && numEquals < 2; i++){
@@ -198,7 +197,6 @@ function urlToThumbail(youtubeUrl){
     let start = youtubeUrl.indexOf('embed/')
     link = youtubeUrl.substring(start + 'embed/'.length, end);
   }
-  console.log(head + link + tail)
   return head + link + tail;
 }
 
