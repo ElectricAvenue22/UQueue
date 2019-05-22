@@ -1,6 +1,9 @@
 # UQueue
 
 UQueue is a browser extension written using the chrome API. It is a YouTube add on used for watching multiple Youtube videos painlessly. Currently it supports disposable and editable queues, skip buttons and an option to force an embedded fullscreen player. 
+#
+![Alt Text](https://lh3.googleusercontent.com/LZwiDO7Ggc89bvId4stbvNsbKMB1Hgx1ghgoXJaqGU4QdPCPgaTFB1dQF6rnBMr4_TiO6b3nGg=w640-h400-e365)
+#
 
 # Installation and Dependencies
 
