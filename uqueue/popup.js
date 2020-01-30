@@ -4,7 +4,7 @@ let deleteQueue = document.getElementById('deleteQueue');
 let skip = document.getElementById('skip');
 let settings = document.getElementById('settings');
 
-//get settings refernces
+//get settings referncesS
 let settingsClicked = false;
 let settingsWindow = document.getElementById('settingsWindow')
 let fullscreenMode = document.getElementById('fullscreen')
@@ -134,7 +134,7 @@ function populateVideoScroller(videoQueue) {
 		let elem = document.createElement("input");
 		elem.setAttribute("style", cssT);
 		elem.setAttribute("type", "image");
-    elem.setAttribute("href", videoQueue[videoURL]);
+		elem.setAttribute("href", videoQueue[videoURL]);
 		elem.src = urlToThumbnail(videoQueue[videoURL]);
 
 		//show delete icon when hovered 
@@ -161,11 +161,11 @@ function populateVideoScroller(videoQueue) {
 		let upArr = document.createElement("input");
 		upArr.setAttribute("style", upStyle);
 		upArr.setAttribute("type", "image");
-		upArr.src = "images/Up.png";
+		upArr.src = "../images/Up.png";
 		let downArr = document.createElement("input");
 		downArr.setAttribute("style", downStyle);
 		downArr.setAttribute("type", "image");
-		downArr.src = "images/Down.png";
+		downArr.src = "../images/Down.png";
 
 		//changing opacities when hovering over arrows
 		upArr.onmouseenter = function (event) {
@@ -217,9 +217,11 @@ function populateVideoScroller(videoQueue) {
 
 //converts a youtube video url to a url that references the thumbnail image 
 function urlToThumbnail(youtubeUrl) {
+
 	let head = "http://img.youtube.com/vi/"
 	let tail = "/0.jpg";
 	let link = ""
+
 	if (youtubeUrl.indexOf('watch?v=') != -1) {
 		let numEquals = 0;
 		for (i = 0; i < youtubeUrl.length && numEquals < 2; i++) {
@@ -230,9 +232,10 @@ function urlToThumbnail(youtubeUrl) {
 			}
 		}
 	} else if (youtubeUrl.indexOf('embed/') != -1) {
-		let end = youtubeUrl.indexOf('?rel=0&amp;autoplay=1;fs=1;autohide=1;hd=1;') //find the added full screen text
+		let end = youtubeUrl.indexOf('?rel=0&Samp;autoplay=1;fs=1;autohide=1;hd=1;') //find the added full screen text
 		let start = youtubeUrl.indexOf('embed/')
 		link = youtubeUrl.substring(start + 'embed/'.length, end);
 	}
+
 	return head + link + tail;
 }

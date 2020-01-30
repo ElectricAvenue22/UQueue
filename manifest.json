@@ -4,11 +4,11 @@
   "description": "Make watching multiple videos quick and easy with the UQueue extension.",
   "permissions": ["activeTab", "declarativeContent", "storage", "contextMenus", "tabs"],
   "background": {
-    "scripts": ["background.js", "videoManager.js"],
+    "scripts": ["uqueue/background.js", "uqueue/videoManager.js"],
     "persistent": true
   },
   "page_action": {
-    "default_popup": "popup.html",
+    "default_popup": "uqueue/popup.html",
     "default_icon": {
       "16": "images/icon16.png",
       "32": "images/icon32.png",
@@ -23,7 +23,7 @@
     "128": "images/icon128.png"
   },
   "content_scripts": [{
-      "js": ["content.js"],
+      "js": ["uqueue/content.js"],
       "matches": ["*://*.youtube.com/*"],
       "persistent": false 
     }
