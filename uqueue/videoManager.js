@@ -29,9 +29,12 @@ chrome.runtime.onMessage.addListener(
 				});
 				vidQueue.shift();
 			}
-		} else if (request.greeting == "Purge") { //delete entire queue 
+
+		} else if (request.greeting == "Purge") { 
+			//delete entire queue 
 			vidQueue = [];
-		} else if (request.greeting == "Delete") { //deletes specific video by url 
+		} else if (request.greeting == "Delete") { 
+			//deletes specific video by url 
 			for (vid = 0; vid < vidQueue.length; vid++) {
 				if (vidQueue[vid] == request.url)
 					vidQueue.splice(vid, 1);

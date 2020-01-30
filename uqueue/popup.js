@@ -1,3 +1,34 @@
+//thumbnail style sheet 
+const cssT = `
+      height: 75px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+      position: relative;
+      left: 50px;`
+
+//Arrow button style sheet
+const upStyle = `
+      width: 22px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2px;
+      position: relative;
+      right: 50px;
+      bottom: 62px;
+      opacity: 0.75;`
+
+//Arrow button style sheet
+const downStyle = `
+      width: 22px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2px;
+      position: relative;
+      right: 72px;
+      bottom: 40px;
+      opacity: 0.75;`
+
 //get button references 
 let play = document.getElementById('play');
 let deleteQueue = document.getElementById('deleteQueue');
@@ -38,7 +69,7 @@ play.onclick = function (element) {
 		chrome.runtime.sendMessage({
 			greeting: "Pop",
 			newTab: true
-		}, function () {})
+		}, function () { })
 	}
 };
 
@@ -46,7 +77,7 @@ play.onclick = function (element) {
 deleteQueue.onclick = function (element) {
 	chrome.runtime.sendMessage({
 		greeting: "Purge"
-	}, function () {})
+	}, function () { })
 	close();
 };
 
@@ -56,7 +87,7 @@ skip.onclick = function (element) {
 		chrome.runtime.sendMessage({
 			greeting: "Pop",
 			newTab: false
-		}, function () {})
+		}, function () { })
 		close();
 	}
 }
@@ -65,14 +96,14 @@ skip.onclick = function (element) {
 showSkipButton.onclick = function (element) {
 	chrome.storage.sync.set({
 		showskip: showSkipButton.checked
-	}, function () {});
+	}, function () { });
 }
 
 //set full screen state
 fullscreenMode.onclick = function (element) {
 	chrome.storage.sync.set({
 		fullscreen: fullscreenMode.checked
-	}, function () {});
+	}, function () { });
 }
 
 //get queue from VideoManager
@@ -87,39 +118,6 @@ function requestQueue(repopQueue) {
 		}
 	});
 }
-
-
-//thumbnail style sheet 
-const cssT = `
-      height: 75px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 10px;
-      position: relative;
-      left: 50px;`
-
-//Arrow button style sheet
-const upStyle = `
-      width: 22px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 2px;
-      position: relative;
-      right: 50px;
-      bottom: 62px;
-      opacity: 0.75;`
-
-//Arrow button style sheet
-const downStyle = `
-      width: 22px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 2px;
-      position: relative;
-      right: 72px;
-      bottom: 40px;
-      opacity: 0.75;`
-
 
 //add youtube thumbnails to the video scroller div 
 function populateVideoScroller(videoQueue) {
@@ -152,7 +150,7 @@ function populateVideoScroller(videoQueue) {
 			chrome.runtime.sendMessage({
 				greeting: "Delete",
 				url: elem.getAttribute("href")
-			}, function () {});
+			}, function () { });
 			elem.parentElement.remove();
 			requestQueue(false);
 		}
@@ -216,6 +214,7 @@ function populateVideoScroller(videoQueue) {
 }
 
 //converts a youtube video url to a url that references the thumbnail image 
+//used so we are able to display the thumbnail in the popup 
 function urlToThumbnail(youtubeUrl) {
 
 	let head = "http://img.youtube.com/vi/"

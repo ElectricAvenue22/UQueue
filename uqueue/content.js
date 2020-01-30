@@ -1,3 +1,11 @@
+/*
+    Protocol 
+
+    1. Popup.js request queue from content.js
+    2. Content.js responds with the queue and then clears the queue 
+    3. Popup.js appends requested videos to internal queue 
+*/
+
 //queue up video button css style 
 const buttonCss = `font-weight: 800;
     font-size: 19px;
@@ -177,11 +185,3 @@ if (video != null) {
 		}, function () {});
 	});
 }
-
-/*
-    Protocol 
-
-    1. Popup.js request queue from content.js
-    2. Content.js responds with the queue and then clears the queue 
-    3. Popup.js appends requested videos to internal queue 
-*/
