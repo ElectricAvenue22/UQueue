@@ -5,10 +5,14 @@
     width: 10%;
 }
 
-button {
+.button {
     border: none;
     background-color: Transparent;
     display: block;
+}
+
+.buttonGroup{
+    padding-bottom: 63px;
 }
 
 .skipButton {
@@ -17,7 +21,7 @@ button {
     width: 58px;
     margin-top: 10px;
     margin-left: 10px;
-    float: left
+    float: left;
 }
 
 .deleteButton {
@@ -25,7 +29,7 @@ button {
     height: 43px;
     width: 58px;
     margin-top: 10px;
-    float: left
+    float: left;
 }
 
 .playButton {
@@ -33,21 +37,27 @@ button {
     height: 43px;
     width: 58px;
     margin-top: 10px;
-    float: left
+    float: left;
 }
 
 .settingsButton {
     background-image: url(../images/settings.png);
     width: 20px;
     height: 20px;
-    float: right
+    float: right;
 }
 
-body {
+.body {
     min-width: 200px;
     max-width: 100%;
     position: relative;
     vertical-align: middle;
+}
+
+.redDivBlock{
+    width: 200px;
+    height: 5px;
+    background: #f00;
 }
 
 .center {
@@ -63,15 +73,6 @@ body {
     width: 75%;
 }
 
-.box {
-    width: 200px;
-    height: 3px;
-}
-
-.red {
-    background: #f00;
-}
-
 .hide {
     display: none;
 }
@@ -80,7 +81,7 @@ body {
     display: show;
 }
 
-/*custom scrollbar*/
+/*custom scroll bar*/
 
 ::-webkit-scrollbar {
     width: 10px;
