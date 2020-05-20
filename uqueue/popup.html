@@ -1,43 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
+	<head>
 
-	<link rel="stylesheet" href="style.css">
+		<title>UQueue</title>
+		<link rel="stylesheet" href="style.css">
 
-</head>
+	</head>
 
-<body>
-	<button id="settings" , class="button 
-    settingsButton"></button>
+	<body>
+		<button id="settings" class="button 
+	    settingsButton"></button>
 
-	<div id="settingsWindow" , class="hide">
-		<input type="checkbox" , id="showSkip"> <b>Show skip button</b><br>
-		<input type="checkbox" , id="fullscreen"> <b>Fullscreen embeded player</b><br>
-		<i style="text-align:center">A browser restart may be required!</i>
-		<hr>
-	</div>
+		<div id="settingsWindow" class="hide">
+			<input type="checkbox" id="showSkip"> <b>Show skip button</b>
+			<br>
+			<input type="checkbox" id="fullscreen"> <b>Fullscreen player</b>
+			<br>
+			<i>A browser restart may be required!</i>
+			<hr>
+		</div>
 
-	<image src="../images/logo.png" , class="logo"></image>
+		<img src="../images/logo.png" class="logo" alt="logo"/>
 
-	<div class="redDivBlock"></div>
+		<div class="redDivBlock"></div>
 
-	<div class="buttonGroup">
-		<button id="skip" , class="button 
-            skipButton"></button>
+		<div class="buttonGroup">
 
-		<button id="play" , class="button
-            playButton"></button>
+			<button id="skip" class="button 
+	            skipButton"></button>
 
-		<button id="deleteQueue" , class="button
-            deleteButton"></button>
-	</div>
+			<button id="play" class="button
+	            playButton"></button>
 
-	<div class="redDivBlock"></div>
+			<button id="deleteQueue" class="button
+	            deleteButton"></button>
+		</div>
 
-	<div id="videoBox" , class="videoScoller"></div>
-	<div id="VideoCont" , class="VideoContainer"></div>
-	<script src="popup.js"></script>
-</body>
+		<div class="redDivBlock"></div>
+
+		<div id="videoBox" class="videoScroller"></div>
+		<div id="VideoCont" class="VideoContainer"></div>
+
+		<script src="popup.js"></script>
+
+	</body>
 
 </html>
